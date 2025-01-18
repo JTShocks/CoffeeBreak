@@ -27,7 +27,7 @@ public class Target : MonoBehaviour
 
     }
 
-    public void DestroyTarget()
+    public virtual void DestroyTarget()
     {
         Destroy(gameObject);
     }
