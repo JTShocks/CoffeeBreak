@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEditor;
 
 
 public class GameManager : Singleton<GameManager>
@@ -10,9 +11,11 @@ public class GameManager : Singleton<GameManager>
     public int totalPoints;
     public TMP_Text scoreText;
 
-    Canvas gameHUD;
+    public static Canvas gameHUD;
 
     public List<AudioClip> NPC_hit_sounds;
+
+    GameObject floatingTextPrefab;
 
     protected override void Awake()
     {
@@ -48,6 +51,8 @@ public class GameManager : Singleton<GameManager>
     {
         totalPoints += points;
         scoreText.text = totalPoints.ToString();
+
+
 
     }
 }
