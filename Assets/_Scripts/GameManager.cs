@@ -1,11 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+
 
 public class GameManager : Singleton<GameManager>
 {
 
     public int totalPoints;
+    public TMP_Text scoreText;
+
+    protected override void Awake()
+    {
+        base.Awake();
+        EventManager.OnTimerStart();
+    }
 
     // Update is called once per frame
     void OnEnable()
@@ -24,5 +33,9 @@ public class GameManager : Singleton<GameManager>
         //Is Sent to the "You Failed screen" and can retry
     }
 
-    public void AddPoints(int points) => totalPoints += points;
+    public void AddPoints(int points)
+    {
+        totalPoints += points;
+        scoreText.text = totalPoints.ToString();
+    }
 }
