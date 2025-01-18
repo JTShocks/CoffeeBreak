@@ -13,7 +13,7 @@ public class GameManager : Singleton<GameManager>
     protected override void Awake()
     {
         base.Awake();
-        EventManager.OnTimerStart();
+        
     }
 
     // Update is called once per frame
@@ -25,6 +25,11 @@ public class GameManager : Singleton<GameManager>
     void OnDisable()
     {
         Target.TargetHit -= AddPoints;
+    }
+
+    void Start()
+    {
+        EventManager.OnTimerStart();
     }
 
     void GameOver()
