@@ -14,7 +14,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject())
+        if(Input.GetMouseButtonDown(0))
         {
             Shoot();
         }
@@ -26,7 +26,16 @@ public class PlayerController : MonoBehaviour
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             if(Physics.Raycast(ray, out hit, rayLength, canBeHit))
             {
+                Debug.Log(hit.collider.name);
 
+                //Check if the object is a valid target
+                //If yes, trigger the target
+
+                Target target = hit.collider.GetComponent<Target>();
+                if(target != null)
+                {
+                    target.OnHit();
+                }
             }
     }
 }
