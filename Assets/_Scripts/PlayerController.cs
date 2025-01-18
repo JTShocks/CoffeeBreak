@@ -41,6 +41,8 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        handsAnimator.SetBool("playerIsStopped", playerIsStopped);
         if(Input.GetMouseButtonDown(0))
         {
             handToUse = Random.Range(-1, 1);
@@ -108,6 +110,7 @@ public class PlayerController : MonoBehaviour
         else if(playerIsStopped)
         {
             currentCart.m_Speed = 2;
+            playerIsStopped = false;
         }
     }
 }
