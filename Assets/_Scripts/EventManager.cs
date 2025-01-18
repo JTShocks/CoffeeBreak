@@ -1,4 +1,5 @@
 using System;
+using Cinemachine;
 using UnityEngine.Events;
 
 public static class EventManager
@@ -16,4 +17,8 @@ public static class EventManager
     public static event Action GameWin;
 
     public static void OnGameWin() => GameWin?.Invoke();
+
+    public static event Action<CinemachineDollyCart> SwitchCart;
+
+    public static void OnSwitchCart(CinemachineDollyCart newCart) => SwitchCart?.Invoke(newCart);
 }

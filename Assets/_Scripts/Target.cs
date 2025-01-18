@@ -7,13 +7,28 @@ public class Target : MonoBehaviour
 {
     [Range(0,1000)]
     public int targetScoreValue;
+
+    [Tooltip("How many hits the target needs before being destroyed")]
+    [SerializeField] private int requiredHits;
     public static event Action<int> TargetHit;
-    public void OnHit()
+    public virtual void OnHit()
     {
         Debug.Log("I've been shot!");
         //Play a random sound
 
         TargetHit?.Invoke(targetScoreValue);
+        requiredHits--;
 
+        if(requiredHits <= 0)
+        {
+            DestroyTarget();
+        }
+
+
+    }
+
+    public void DestroyTarget()
+    {
+        Destroy(gameObject);
     }
 }

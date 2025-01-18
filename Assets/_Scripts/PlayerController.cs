@@ -1,12 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
+using Cinemachine;
 using Unity.VisualScripting;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
 public class PlayerController : MonoBehaviour
 {
 
+    [SerializeField] int playerMoveSpeed;
+    public CinemachineDollyCart currentCart;
+
+    bool playerIsStopped;
 
     Animator handsAnimator;
     enum Hands{
@@ -21,6 +27,17 @@ public class PlayerController : MonoBehaviour
     public float rayLength;
     public LayerMask canBeHit;
 
+
+
+    void OnEnable()
+    {
+        EventManager.SwitchCart += SwitchCart;
+    }
+
+    void OnDisable()
+    {
+        EventManager.SwitchCart -= SwitchCart;
+    }
     // Update is called once per frame
     void Update()
     {
@@ -40,6 +57,11 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    void FixedUpdate()
+    {
+        CheckForTargets();
+    }
+
     void Shoot(Hands hand)
     {
             RaycastHit hit;
@@ -57,6 +79,35 @@ public class PlayerController : MonoBehaviour
                     target.OnHit();
                 }
             }
+    }
+
+    public void StopCart()
+    {
+        currentCart.m_Speed = 0;
+        playerIsStopped = true;
+
+    }
+
+    public void SwitchCart(CinemachineDollyCart newCart)
+    {
+        CinemachineDollyCart previous = currentCart;
+        currentCart = newCart;
+        currentCart.gameObject.SetActive(true);
+        previous.gameObject.SetActive(false);
+
+    }
+
+    void CheckForTargets()
+    {
+        RaycastHit target;
+        if(Physics.Raycast(transform.position, Vector3.forward, out target, 2, canBeHit))
+        {
+            StopCart();
+        }
+        else if(playerIsStopped)
+        {
+            currentCart.m_Speed = 2;
+        }
     }
 }
 
