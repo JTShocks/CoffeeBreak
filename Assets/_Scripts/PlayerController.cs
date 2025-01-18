@@ -1,10 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
 public class PlayerController : MonoBehaviour
 {
+
+
+    Animator handsAnimator;
+    enum Hands{
+        Left = -1,
+        Right = 1
+    }
+
+    float handToUse = 1;
 
     //how far the player can shoot
     [Tooltip("How far the player can smack things from")]
@@ -16,11 +26,21 @@ public class PlayerController : MonoBehaviour
     {
         if(Input.GetMouseButtonDown(0))
         {
-            Shoot();
+            handToUse = Random.Range(-1, 1);
+
+            if(handToUse < 0)
+            {
+                Shoot(Hands.Left);
+            }
+            else
+            {
+                Shoot(Hands.Right);
+            }
+
         }
     }
 
-    void Shoot()
+    void Shoot(Hands hand)
     {
             RaycastHit hit;
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -39,3 +59,4 @@ public class PlayerController : MonoBehaviour
             }
     }
 }
+
