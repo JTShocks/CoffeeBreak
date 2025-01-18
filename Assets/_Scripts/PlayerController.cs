@@ -14,7 +14,7 @@ public class PlayerController : MonoBehaviour
 
     bool playerIsStopped;
 
-    Animator handsAnimator;
+    [SerializeField] Animator handsAnimator;
     enum Hands{
         Left = -1,
         Right = 1
@@ -77,6 +77,7 @@ public class PlayerController : MonoBehaviour
                 if(target != null)
                 {
                     target.OnHit();
+                    handsAnimator.Play("Swipe");
                 }
             }
     }
@@ -100,7 +101,7 @@ public class PlayerController : MonoBehaviour
     void CheckForTargets()
     {
         RaycastHit target;
-        if(Physics.Raycast(transform.position, Vector3.forward, out target, 2, canBeHit))
+        if(Physics.Raycast(transform.position, Vector3.forward, out target, 1, canBeHit))
         {
             StopCart();
         }
