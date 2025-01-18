@@ -8,6 +8,7 @@ public class Shortcut : Target
     //Hold a spline for the new camera path
 
     [SerializeField] CinemachineVirtualCamera shortCutCamera;
+    [SerializeField] CinemachineDollyCart shortCutCart;
 
     public override void OnHit()
     {
