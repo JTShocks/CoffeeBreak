@@ -2,15 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour
+public class GameManager : Singleton<GameManager>
 {
 
     public int totalPoints;
-
-    void Awake()
-    {
-        
-    }
 
     // Update is called once per frame
     void OnEnable()
