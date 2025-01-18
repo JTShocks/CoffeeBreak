@@ -15,6 +15,8 @@ public class Queuer : Target
     }
     public override void OnHit()
     {
+        int rng = Random.Range(0, GameManager.Instance.NPC_hit_sounds.Count);
+        EventManager.OnPlaySoundEffect(GameManager.Instance.NPC_hit_sounds[rng]);
         base.OnHit();
 
     }

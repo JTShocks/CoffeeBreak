@@ -1,4 +1,5 @@
 using System;
+using UnityEngine;
 using Cinemachine;
 using UnityEngine.Events;
 
@@ -21,4 +22,7 @@ public static class EventManager
     public static event Action<CinemachineDollyCart> SwitchCart;
 
     public static void OnSwitchCart(CinemachineDollyCart newCart) => SwitchCart?.Invoke(newCart);
+
+    public static event Action<AudioClip> PlaySoundEffect;
+    public static void OnPlaySoundEffect(AudioClip sfx) => PlaySoundEffect?.Invoke(sfx);
 }

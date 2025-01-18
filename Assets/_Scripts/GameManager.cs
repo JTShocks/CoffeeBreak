@@ -10,6 +10,10 @@ public class GameManager : Singleton<GameManager>
     public int totalPoints;
     public TMP_Text scoreText;
 
+    Canvas gameHUD;
+
+    public List<AudioClip> NPC_hit_sounds;
+
     protected override void Awake()
     {
         base.Awake();
@@ -20,11 +24,13 @@ public class GameManager : Singleton<GameManager>
     void OnEnable()
     {
         Target.TargetHit += AddPoints;
+        EventManager.TimerStop += GameOver;
     }
 
     void OnDisable()
     {
         Target.TargetHit -= AddPoints;
+        EventManager.TimerStop -= GameOver;
     }
 
     void Start()
@@ -42,5 +48,6 @@ public class GameManager : Singleton<GameManager>
     {
         totalPoints += points;
         scoreText.text = totalPoints.ToString();
+
     }
 }
