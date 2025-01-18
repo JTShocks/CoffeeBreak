@@ -1,12 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using Cinemachine;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
 public class PlayerController : MonoBehaviour
 {
-
+    public CinemachineDollyCart currentCart;
 
     Animator handsAnimator;
     enum Hands{
@@ -21,6 +22,17 @@ public class PlayerController : MonoBehaviour
     public float rayLength;
     public LayerMask canBeHit;
 
+
+
+    void OnEnable()
+    {
+        EventManager.SwitchCart += SwitchCart;
+    }
+
+    void OnDisable()
+    {
+        EventManager.SwitchCart -= SwitchCart;
+    }
     // Update is called once per frame
     void Update()
     {
@@ -57,6 +69,21 @@ public class PlayerController : MonoBehaviour
                     target.OnHit();
                 }
             }
+    }
+
+    public void StopCart()
+    {
+        currentCart.m_Speed = 0;
+
+    }
+
+    public void SwitchCart(CinemachineDollyCart newCart)
+    {
+        CinemachineDollyCart previous = currentCart;
+        currentCart = newCart;
+        currentCart.gameObject.SetActive(true);
+        previous.gameObject.SetActive(false);
+
     }
 }
 

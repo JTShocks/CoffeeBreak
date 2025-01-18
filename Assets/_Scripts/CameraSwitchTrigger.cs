@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class CameraSwitchTrigger : MonoBehaviour
 {
+
+    public Transform lookAtPosition;
    [SerializeField] CinemachineVirtualCamera newCamera;
 
    void OnTriggerEnter(Collider collider)
@@ -12,8 +14,21 @@ public class CameraSwitchTrigger : MonoBehaviour
         PlayerController player = collider.GetComponent<PlayerController>();
         if(player != null)
         {
-            EventManager.OnSwitchCamera(newCamera);
-        }
+            Debug.Log("Player is in range");
+            //EventManager.OnSwitchCamera(newCamera);
+            CinemachineBrain brain = Camera.main.GetComponent<CinemachineBrain>();
+            CinemachineVirtualCamera camera = brain.ActiveVirtualCamera.VirtualCameraGameObject.GetComponent<CinemachineVirtualCamera>();
 
+            camera.m_LookAt = lookAtPosition;
+        }
+   }
+
+   void OnTriggerExit(Collider collider)
+   {
+            CinemachineBrain brain = Camera.main.GetComponent<CinemachineBrain>();
+            CinemachineVirtualCamera camera = brain.ActiveVirtualCamera.VirtualCameraGameObject.GetComponent<CinemachineVirtualCamera>();
+
+            camera.m_LookAt = null;
+            camera.transform.rotation = Quaternion.Euler(Vector3.zero); 
    }
 }

@@ -18,7 +18,7 @@ public static class EventManager
 
     public static void OnGameWin() => GameWin?.Invoke();
 
-    public static event Action<CinemachineVirtualCamera> SwitchCamera;
+    public static event Action<CinemachineDollyCart> SwitchCart;
 
-    public static void OnSwitchCamera(CinemachineVirtualCamera newCamera) => SwitchCamera?.Invoke(newCamera);
+    public static void OnSwitchCart(CinemachineDollyCart newCart) => SwitchCart?.Invoke(newCart);
 }
