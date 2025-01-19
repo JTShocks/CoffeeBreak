@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEditor;
+using UnityEngine.SceneManagement;
 
 
 public class GameManager : Singleton<GameManager>
@@ -19,7 +20,9 @@ public class GameManager : Singleton<GameManager>
 
     protected override void Awake()
     {
+        
         base.Awake();
+        totalPoints = 0;
         
     }
 
@@ -45,6 +48,8 @@ public class GameManager : Singleton<GameManager>
     {
         //Everything that happens when the player runs out of time
         //Is Sent to the "You Failed screen" and can retry
+        SceneManager.LoadSceneAsync(3);
+        
     }
 
     public void AddPoints(int points)
