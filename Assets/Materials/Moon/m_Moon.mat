@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: m_planet2
+  m_Name: m_Moon
   m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -27,7 +27,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _BumpMap:
-        m_Texture: {fileID: 2800000, guid: 805f8cc0edb300a45aa6089d20f4cbed, type: 3}
+        m_Texture: {fileID: 2800000, guid: 063ee2d50475ff148b2e5845a563464b, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DetailAlbedoMap:
@@ -43,19 +43,19 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _EmissionMap:
-        m_Texture: {fileID: 2800000, guid: 77c5fae0d16657b4da59339f506c358b, type: 3}
+        m_Texture: {fileID: 2800000, guid: c25bce806ff65f647aabb5150efe05e9, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 77c5fae0d16657b4da59339f506c358b, type: 3}
+        m_Texture: {fileID: 2800000, guid: c25bce806ff65f647aabb5150efe05e9, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
-        m_Texture: {fileID: 2800000, guid: c62e6fe1d5463474387afe6e8692cd50, type: 3}
+        m_Texture: {fileID: 2800000, guid: c9a89838d81b1cd4ebce47d946ef6ed3, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
-        m_Texture: {fileID: 2800000, guid: c62e6fe1d5463474387afe6e8692cd50, type: 3}
+        m_Texture: {fileID: 2800000, guid: c25bce806ff65f647aabb5150efe05e9, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _ParallaxMap:
@@ -82,5 +82,5 @@ Material:
     - _ZWrite: 1
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _EmissionColor: {r: 0.6929231, g: 0.8301887, b: 0.68529725, a: 1}
+    - _EmissionColor: {r: 0.6886792, g: 0.6886792, b: 0.6886792, a: 1}
   m_BuildTextureStacks: []
