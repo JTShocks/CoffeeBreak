@@ -35,7 +35,7 @@ public class Queuer : Target
         }
 
 
-        rb.AddForce(Vector3.left*40*rng, ForceMode.Impulse);
+        rb.AddForce(Vector3.left*20*rng, ForceMode.Impulse);
         spriteRenderer.sprite = hitSprite;
     }
 }
