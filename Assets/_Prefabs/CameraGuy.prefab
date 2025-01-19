@@ -59,6 +59,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: ed2e159f61f154940b580f1b41da5ef0, type: 3}
   - {fileID: 8300000, guid: c60c027fd8cf6814685503d0642f0412, type: 3}
   - {fileID: 8300000, guid: 407b0b9028eae63409dd2c41ce4166b9, type: 3}
+  cameraFlash: {fileID: 8300000, guid: ae52a19bf1faa6c48ad10981c3817d23, type: 3}
   moveSpeed: 5
   flashDelay: 2
   pointsToRemove: 500
