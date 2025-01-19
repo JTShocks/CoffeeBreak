@@ -30,7 +30,7 @@ public class CameraGuy : Queuer
         //If he succeeds, flashes your screen
             //lose points and slow down
 
-    void Update()
+    public override void Update()
     {
         if(isActivated)
         {
