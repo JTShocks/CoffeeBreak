@@ -8,25 +8,17 @@ public class TutorialPopUp : MonoBehaviour
 
     public GameObject popUpBox;
     public Animator animator;
-    public TMP_Text popUpText;
 
 
-    public void PopUp(string text)
+    public void PopUp()
     {
         popUpBox.SetActive(true);
-        popUpText.text = text;
         animator.SetTrigger("pop");
     }
 
-
-    void Start()
+    public void ClosePopup()
     {
-        
+        animator.SetTrigger("close");
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
