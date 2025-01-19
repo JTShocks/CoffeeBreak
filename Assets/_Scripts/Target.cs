@@ -1,11 +1,14 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Target : MonoBehaviour
 {
     [Range(0,1000)]
+
+
     public int targetScoreValue;
 
     [Tooltip("How many hits the target needs before being destroyed")]
@@ -25,6 +28,11 @@ public class Target : MonoBehaviour
             DestroyTarget();
         }
 
+
+    }
+
+    public virtual void Update()
+    {
 
     }
 
