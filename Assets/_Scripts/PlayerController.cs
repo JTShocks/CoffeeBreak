@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] int playerMoveSpeed;
     public CinemachineDollyCart currentCart;
 
+
     bool playerIsStopped;
 
     [SerializeField] Animator handsAnimator;
@@ -98,6 +99,7 @@ public class PlayerController : MonoBehaviour
         currentCart.gameObject.SetActive(true);
         previous.gameObject.SetActive(false);
         currentCart.m_Position = cartStartPoint;
+        currentCart.m_Speed = playerMoveSpeed;
 
     }
 

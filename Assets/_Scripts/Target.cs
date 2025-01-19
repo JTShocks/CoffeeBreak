@@ -17,6 +17,7 @@ public class Target : MonoBehaviour
         //Play a random sound
 
         TargetHit?.Invoke(targetScoreValue);
+
         requiredHits--;
 
         if(requiredHits <= 0)
@@ -29,6 +30,6 @@ public class Target : MonoBehaviour
 
     public virtual void DestroyTarget()
     {
-        Destroy(gameObject);
+        //Destroy(gameObject);
     }
 }

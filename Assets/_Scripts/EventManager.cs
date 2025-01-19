@@ -25,4 +25,7 @@ public static class EventManager
 
     public static event Action<AudioClip> PlaySoundEffect;
     public static void OnPlaySoundEffect(AudioClip sfx) => PlaySoundEffect?.Invoke(sfx);
+
+    public static event Action ScreenFlash;
+    public static void OnScreenFlash() => ScreenFlash?.Invoke();
 }
