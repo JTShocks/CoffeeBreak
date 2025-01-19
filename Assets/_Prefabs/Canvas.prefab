@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2655020880774630705}
   - component: {fileID: 3084224781984848236}
   - component: {fileID: 5308293510822100051}
+  - component: {fileID: 4427184014839064715}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -118,8 +119,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f75d28532e4913645bc093cde6d3bd9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  screenAnimator: {fileID: 0}
   floatingTextPrefab: {fileID: 6695152342538738247, guid: 6e8795c93a761c648a80ce957adca530, type: 3}
   floatTextPosition: {fileID: 8202310282490292700}
+--- !u!95 &4427184014839064715
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 412706791459283884}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: aa831533cbabde74ca883b360d427904, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1509353888895439894
 GameObject:
   m_ObjectHideFlags: 0
@@ -279,7 +302,6 @@ GameObject:
   - component: {fileID: 4300210424434517994}
   - component: {fileID: 5301726074599055605}
   - component: {fileID: 4381578419000850591}
-  - component: {fileID: 4201950478676991370}
   m_Layer: 5
   m_Name: CameraFlash
   m_TagString: Untagged
@@ -344,27 +366,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!95 &4201950478676991370
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2901099749384534890}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &3457219102899247705
 GameObject:
   m_ObjectHideFlags: 0

@@ -12,11 +12,13 @@ public class GameHudManager : MonoBehaviour
     void OnEnable()
     {
         Target.TargetHit += ShowPoints;
+        EventManager.ScreenFlash += Flash;
     }
 
     void OnDisable()
     {
         Target.TargetHit -= ShowPoints;
+        EventManager.ScreenFlash -= Flash;
     }
 
     void ShowPoints(int points)
