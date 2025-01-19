@@ -17,9 +17,9 @@ public class MainMenuScript : MonoBehaviour
     }
 
 
-    void Start()
+    public void LoadMainMenu()
     {
-        
+        SceneManager.LoadSceneAsync(0);
     }
 
     
