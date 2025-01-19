@@ -12,6 +12,7 @@ public class CameraGuy : Queuer
 
     [SerializeField] Transform popOutTransform;
     [SerializeField] List<AudioClip> voiceBarks;
+    [SerializeField] AudioClip cameraFlash;
 
     [SerializeField] float moveSpeed;
     [SerializeField] float flashDelay;
@@ -72,6 +73,7 @@ public class CameraGuy : Queuer
             yield break;
         }
         EventManager.OnScreenFlash();
+        EventManager.OnPlaySoundEffect(cameraFlash);
         GameManager.Instance.LosePoints(pointsToRemove);
         //if it 
         Destroy(gameObject, .8f);
