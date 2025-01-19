@@ -19,9 +19,9 @@ public static class EventManager
 
     public static void OnGameWin() => GameWin?.Invoke();
 
-    public static event Action<CinemachineDollyCart> SwitchCart;
+    public static event Action<CinemachineDollyCart, float> SwitchCart;
 
-    public static void OnSwitchCart(CinemachineDollyCart newCart) => SwitchCart?.Invoke(newCart);
+    public static void OnSwitchCart(CinemachineDollyCart newCart, float cartStartPoint) => SwitchCart?.Invoke(newCart, cartStartPoint);
 
     public static event Action<AudioClip> PlaySoundEffect;
     public static void OnPlaySoundEffect(AudioClip sfx) => PlaySoundEffect?.Invoke(sfx);

@@ -91,12 +91,13 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    public void SwitchCart(CinemachineDollyCart newCart)
+    public void SwitchCart(CinemachineDollyCart newCart, float cartStartPoint)
     {
         CinemachineDollyCart previous = currentCart;
         currentCart = newCart;
         currentCart.gameObject.SetActive(true);
         previous.gameObject.SetActive(false);
+        currentCart.m_Position = cartStartPoint;
 
     }
 
