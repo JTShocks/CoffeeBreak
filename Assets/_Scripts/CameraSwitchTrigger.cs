@@ -25,10 +25,15 @@ public class CameraSwitchTrigger : MonoBehaviour
 
    void OnTriggerExit(Collider collider)
    {
+
+        PlayerController player = collider.GetComponent<PlayerController>();
+        if(player != null)
+        {
             CinemachineBrain brain = Camera.main.GetComponent<CinemachineBrain>();
             CinemachineVirtualCamera camera = brain.ActiveVirtualCamera.VirtualCameraGameObject.GetComponent<CinemachineVirtualCamera>();
 
             camera.m_LookAt = null;
             camera.transform.rotation = Quaternion.Euler(Vector3.zero); 
+        }
    }
 }

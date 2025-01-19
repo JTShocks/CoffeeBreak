@@ -51,8 +51,10 @@ public class GameManager : Singleton<GameManager>
     {
         totalPoints += points;
         scoreText.text = totalPoints.ToString();
-
-
-
+    }
+    public void LosePoints(int points)
+    {
+        totalPoints -= points;
+        scoreText.text = totalPoints.ToString();
     }
 }
