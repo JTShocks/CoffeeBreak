@@ -103,7 +103,7 @@ public class PlayerController : MonoBehaviour
     void CheckForTargets()
     {
         RaycastHit target;
-        if(Physics.Raycast(transform.position, Vector3.forward, out target, 1, canBeHit))
+        if(Physics.Raycast(transform.position, Vector3.forward, out target, 3, canBeHit))
         {
             StopCart();
         }
