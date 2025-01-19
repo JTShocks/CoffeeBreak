@@ -5,15 +5,21 @@ using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UIElements;
 
 public class PlayerController : MonoBehaviour
 {
 
     [SerializeField] int playerMoveSpeed;
+
+    private float currentMoveSpeed;
     public CinemachineDollyCart currentCart;
 
 
     bool playerIsStopped;
+
+    [Range(0, 1)]
+    [SerializeField] float slowdownDebuff;
 
     [SerializeField] Animator handsAnimator;
     enum Hands{
@@ -33,11 +39,20 @@ public class PlayerController : MonoBehaviour
     void OnEnable()
     {
         EventManager.SwitchCart += SwitchCart;
+        EventManager.ScreenFlash += FlashDebuff;
     }
+
+
 
     void OnDisable()
     {
         EventManager.SwitchCart -= SwitchCart;
+        EventManager.ScreenFlash -= FlashDebuff;
+    }
+
+    void Awake()
+    {
+        currentMoveSpeed = playerMoveSpeed;
     }
     // Update is called once per frame
     void Update()
@@ -65,6 +80,21 @@ public class PlayerController : MonoBehaviour
         CheckForTargets();
     }
 
+    private void FlashDebuff()
+    {
+        StartCoroutine(SlowDown());
+    }
+
+    IEnumerator SlowDown()
+    {
+        currentMoveSpeed = playerMoveSpeed * slowdownDebuff;
+        currentCart.m_Speed = currentMoveSpeed;
+        yield return new WaitForSeconds(4);
+        currentMoveSpeed = playerMoveSpeed;
+        currentCart.m_Speed = currentMoveSpeed;
+        yield return null;
+    }
+
     void Shoot(Hands hand)
     {
             RaycastHit hit;
@@ -79,8 +109,31 @@ public class PlayerController : MonoBehaviour
                 Target target = hit.collider.GetComponent<Target>();
                 if(target != null)
                 {
+
+                    Shortcut shortcut = target.GetComponent<Shortcut>();
+                    if(shortcut!=null)
+                    {
+                        handsAnimator.Play("Push");
+                    }
                     target.OnHit();
-                    handsAnimator.Play("Swipe");
+                    if(hand == Hands.Right)
+                    {
+                        float rng = Random.Range(0, 1);
+                        if(rng > .5){
+                            handsAnimator.Play("Uppercut");
+                        }
+                        else
+                        {
+                        handsAnimator.Play("Swipe");
+                        }
+
+                        
+                    }
+                    else
+                    {
+                        handsAnimator.Play("Left_Swipe");
+                    }
+
                 }
             }
     }
@@ -112,7 +165,7 @@ public class PlayerController : MonoBehaviour
         }
         else if(playerIsStopped)
         {
-            currentCart.m_Speed = playerMoveSpeed;
+            currentCart.m_Speed = currentMoveSpeed;
             playerIsStopped = false;
         }
     }

@@ -6,7 +6,7 @@ using UnityEngine;
 public class Queuer : Target
 {
     Rigidbody rb;
-    SpriteRenderer spriteRenderer;
+    protected SpriteRenderer spriteRenderer;
     [SerializeField] Sprite hitSprite;
     void Awake()
     {
