@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using UnityEditor;
 using UnityEngine.SceneManagement;
+using System;
 
 
 public class GameManager : Singleton<GameManager>
@@ -22,7 +23,6 @@ public class GameManager : Singleton<GameManager>
     {
         
         base.Awake();
-        totalPoints = 0;
         
     }
 
@@ -31,17 +31,29 @@ public class GameManager : Singleton<GameManager>
     {
         Target.TargetHit += AddPoints;
         EventManager.TimerStop += GameOver;
+        SceneManager.sceneLoaded += StartRound;
     }
 
     void OnDisable()
     {
         Target.TargetHit -= AddPoints;
         EventManager.TimerStop -= GameOver;
+        SceneManager.sceneLoaded -= StartRound;
+    }
+
+    private void StartRound(Scene arg0, LoadSceneMode arg1)
+    {
+        
+        EventManager.OnTimerStart();
+        if(totalPoints > 0)
+        {
+            totalPoints = 0;
+        }
     }
 
     void Start()
     {
-        EventManager.OnTimerStart();
+       
     }
 
     void GameOver()

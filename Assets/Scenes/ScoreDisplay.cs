@@ -9,6 +9,6 @@ public class ScoreDisplay : MonoBehaviour
     [SerializeField] TextMeshProUGUI finalScore;
     void Awake()
     {
-        finalScore.text = GameManager.Instance.totalPoints.ToString();
+        //finalScore.text = GameManager.Instance.totalPoints.ToString();
     }
 }
